@@ -1,0 +1,26 @@
+## Leading Question 
+    For our project, our leading question is: For popular streamers on twitch, which streamers share the most common viewership? For example, given a Twitch streamer, which three streamers share the most viewers with that streamer? This will help Twitch users in deciding which streamers to watch, because if their favorite Twitch streamer is also watched by other users, they can watch these streamers too. We will use this Twitch users dataset along with graph algorithms. We are considering using A* Search to find the most connected users, and we will either use a BFS or DFS traversal to traverse through the graph of twitch users between edges.
+## Dataset Acquisition
+    We will be using twitch-gamers social network from the Stanford Large Network Dataset Collection.
+## Data Format
+    The source of the dataset is the Stanford Large Network Dataset Collection. The input format of this dataset consist of both integer values and strings. There is a numeric_id for each user, which is an integer, and there are numbers saying how many views each of these users get. These are the most important columns of our dataset, but there is also another dataset where the edges between two users with common viewers are shown. Some other columns include language, a date of creation and update of the account, and a column indicating whether the account is dead or not. The dataset consists of about 168,000 node entries and over 6,000,0000 edges connecting them. With this big of a dataset, we will most likely use a small subset of this dataset. The subset will be chosen by filtering the columns so that they pertain the most to what we are looking for. 
+
+## Data Correction
+    If there are problems with missing data entries in the dataset, we will not include those users in our subset. Since the dataset is so large, we do not need to necessarily include every row of the dataset, so we will just not include them in the dataset. However, if need be, for the integer value input columns, we will take the median of the entire column and fill the null values with that median value, since this is an efficient way of cleaning the dataset. If there are outliers, these rows will also not be included in our subset.
+
+## Data Storage
+    We will be using a graph to store the data within our code. The dataset is set up perfectly for us to utilize a graph. Since there are nodes and edges within the dataset, and the graph is made up of nodes and edges as well, the nodes will represent each Twitch user and the edges are the relationships between these streamers. If we were to use any auxiliary data structures, we would lean towards using a List or Stack to help with the implementation of the graph structure. We estimate that the total storage cost for the dataset is O(V + E), where V is the number of nodes and E is the number of edges.
+
+## Algorithm 
+    We plan on having an algorithm that takes in a numeric_id of a streamer. Since we are using graph algorithms, this numeric_id should be converted into a graph, so this function would in fact take in a graph. Also, since we plan on using A* search because it can help with the connectedness of the edges between Twitch users, we can use a heuristic to aid with the functionality. One possible heuristic we can use is the Traveling Salesman Problem, since that is a fascinating and useful one for graphs. The algorithm should return another node, or in this case another numeric_id, based on if they are really similar to the input numeric_id. The target goal on the Big O efficiency is estimated to be O(E) for runtime, and the memory would just be O(n).
+
+## Timeline
+    By Nov 8: Clean up the dataset
+    By Nov 11: Create structure to hold data
+    By Nov 14: Process the dataset and convert it into a graph structure
+    By Nov 20: Be able to interact with data
+    By Nov 20: Find connections between graphs
+    Before Final Deliverable:
+    Implement basic graph functionality
+    Implement more advanced functions using algorithm
+    Create final function to achieve purpose
